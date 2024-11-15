@@ -428,21 +428,21 @@ console.log(searchByTitle("Avenger"));
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 console.log("ESERCIZIO 18");
-function searchAndDivide(stringa){
+function searchAndDivide(stringa) {
 
- resulObject = {
-  match:[],
-  unmatch:[]
- }
- 
-  movies.filter(element =>{
-if(element.Title.includes(stringa)){
-  resulObject.match.push(element)
-}else{
-  resulObject.unmatch.push(element);
-}
-});
-return resulObject;
+  resulObject = {
+    match: [],
+    unmatch: []
+  }
+
+  movies.filter(element => {
+    if (element.Title.includes(stringa)) {
+      resulObject.match.push(element)
+    } else {
+      resulObject.unmatch.push(element);
+    }
+  });
+  return resulObject;
 }
 
 console.log(searchAndDivide("Avenger"));
@@ -450,8 +450,8 @@ console.log(searchAndDivide("Avenger"));
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 console.log("ESERCIZIO 19");
-function removeIndex(indice){
-  movies.splice(indice , 1);
+function removeIndex(indice) {
+  movies.splice(indice, 1);
   return movies;
 }
 
@@ -463,18 +463,18 @@ console.log(removeIndex(2));
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 console.log("ESERCIZIO 20");
-function getContainer(){
- const container = document.getElementById("container");
+function getContainer() {
+  const container = document.getElementById("container");
 
 
-return container.nodeName;
+  return container.nodeName;
 }
 console.log(getContainer())
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 console.log("ESERCIZIO 21");
-function selectAllTds(){
+function selectAllTds() {
   const AllTd = document.getElementsByTagName("td")
   return AllTd;
 }
@@ -484,8 +484,8 @@ console.log(selectAllTds());
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 console.log("ESERCIZIO 22");
-function consoleStamp(){
-  for(let i = 0; i < selectAllTds().length; i++){
+function consoleStamp() {
+  for (let i = 0; i < selectAllTds().length; i++) {
     console.log(selectAllTds()[i].innerText);
   }
 }
@@ -494,9 +494,9 @@ consoleStamp();
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 console.log("ESERCIZIO 23");
-function addBackgroudColor(){
+function addBackgroudColor() {
   const allLinks = document.getElementsByTagName("a");
-  for(let i = 0; i < allLinks.length; i++){
+  for (let i = 0; i < allLinks.length; i++) {
     allLinks[i].style.backgroundColor = "red";
   }
 }
@@ -506,9 +506,9 @@ addBackgroudColor();
 */
 const myList = document.getElementById("myList"); //dichiarata globale perchè usata anche nell'esercizio seguente.
 console.log("ESERCIZIO 24");
-function addNewLi(){
+function addNewLi() {
   const newLi = document.createElement("li");
-  newLi.innerText="Nuovo elemento appena creato";
+  newLi.innerText = "Nuovo elemento appena creato";
   myList.appendChild(newLi);
 }
 addNewLi();
@@ -519,9 +519,9 @@ console.log(myList);
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 console.log("ESERCIZIO 25");
-function emptyMyList(){
+function emptyMyList() {
   myList.innerHTML = "";
-  
+
 }
 emptyMyList(); //Se commentata riapparità un Li creato con l'ES precedente
 
@@ -530,12 +530,12 @@ emptyMyList(); //Se commentata riapparità un Li creato con l'ES precedente
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
 console.log("ESERCIZIO 26");
-function addClassTr(){
+function addClassTr() {
   const allTr = document.getElementsByTagName("tr");
-    for(let i = 0; i < allTr.length; i++){
-      allTr[i].classList.add("test");
-    }
-console.log(allTr);
+  for (let i = 0; i < allTr.length; i++) {
+    allTr[i].classList.add("test");
+  }
+  console.log(allTr);
 
 }
 addClassTr();
@@ -554,12 +554,12 @@ addClassTr();
 
 */
 console.log("ESERCIZIO 27");
-function halfTree(index){
-let stringa = "";
-for(let i = 0; i < index ; i++){
-   stringa += ("*".repeat(i) + "\n");
-}
-console.log(stringa);
+function halfTree(index) {
+  let stringa = "";
+  for (let i = 0; i < index; i++) {
+    stringa += ("*".repeat(i) + "\n");
+  }
+  console.log(stringa);
 }
 halfTree(5);
 
@@ -575,9 +575,10 @@ halfTree(5);
     *
    ***
   *****
-
+*/
 
 console.log("ESERCIZIO 28");
+/*
 function tree(index){
 let stringa = "";
 for(let i = 0; i < index ; i++){
@@ -593,21 +594,21 @@ tree(5);*/
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 console.log("ESERCIZIO 29");
-function isItPrime(numero){
-let radiceQuadra = Math.floor(Math.sqrt(numero));
-console.log(radiceQuadra);
-if (numero <= 1 ){
-    return console.log("la lista dei numeri primi parte da 2")
-}else if (radiceQuadra === 1) {
-   return console.log(`${numero} e' primo!`);
-}else{
-for(let i = 2 ; i <= radiceQuadra; i++){
-  if(numero % i === 0 ){
-     return console.log(`${numero} non è primo!`); // DA COMPLETARE IL CHECK FATTO BENE 
+function isItPrime(numero) {
+  let radiceQuadra = Math.floor(Math.sqrt(numero));
+  console.log(radiceQuadra);
+  if (numero <= 1) {
+    return console.log("la lista dei numeri primi parte da 2");
+  } else if (radiceQuadra === 1) {
+    return console.log(`${numero} e' primo!`);
+  } else {
+    for (let i = 2; i <= radiceQuadra; i++) {
+      if (numero % i === 0) {
+        return console.log(`${numero} non è primo!`); // DA COMPLETARE IL CHECK FATTO BENE 
+      }
+    }
+    console.log("il numero è primo");
   }
-  }
-  console.log("il numero è primo")
-}
 }
 
 isItPrime(4);
