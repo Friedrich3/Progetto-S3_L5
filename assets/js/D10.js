@@ -576,49 +576,41 @@ halfTree(5);
    ***
   *****
 
-*/
+
 console.log("ESERCIZIO 28");
 function tree(index){
 let stringa = "";
 for(let i = 0; i < index ; i++){
-   stringa += ("*".repeat(i) + "\n");
+   stringa += ("*".repeat(i) + "\n");     
 }
 console.log(stringa);
 }
-tree(5);
+tree(5);*/
+
+
+
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 console.log("ESERCIZIO 29");
 function isItPrime(numero){
-// il parametro numero deve essere iterato per creare un array di numeri compresi tra 2 e la radice quadrata del numero in questione
-// verifichi se il numero % (numero dentro array) === 0 se true il numero non è primo se false il numero è primo
-const divisori = [];
 let radiceQuadra = Math.floor(Math.sqrt(numero));
-
-//console.log(radiceQuadra);
-
+console.log(radiceQuadra);
 if (numero <= 1 ){
     return console.log("la lista dei numeri primi parte da 2")
 }else if (radiceQuadra === 1) {
    return console.log(`${numero} e' primo!`);
 }else{
-for(let i = 1; i < radiceQuadra; i++){
-  divisori.push(i + 1);  //+1 per escludere il numero 1 dall' array essendo sempre divisibile
-  
-}
-//console.log(divisori);
-for(let i = 0 ; i < divisori.length; i++){
-  if(numero % divisori[i] === 0 ){
-     return console.log(`${numero} non è primo!`) // DA COMPLETARE IL CHECK FATTO BENE 
-  }else{
-     return console.log(`${numero} e' primo!`)
+for(let i = 2 ; i <= radiceQuadra; i++){
+  if(numero % i === 0 ){
+     return console.log(`${numero} non è primo!`); // DA COMPLETARE IL CHECK FATTO BENE 
   }
+  }
+  console.log("il numero è primo")
 }
 }
-return;
-}
-isItPrime(11);
+
+isItPrime(4);
 
 
 
