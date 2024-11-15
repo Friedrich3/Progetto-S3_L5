@@ -164,7 +164,7 @@ function rollTheDices(repeats) {
     values: []
   };
   for (let i = 0; i < repeats; i++) {
-    let numero = dice ()
+    let numero = dice()
     risultato.sum += numero;
     risultato.values.push(numero);
   }
@@ -176,20 +176,47 @@ console.log(rollTheDices(3));
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 console.log("ESERCIZIO 9");
-function howManyDays(giorno,mese,anno){
-newDate = new Date();
-newDate.get
+function howManyDays(giorno, mese, anno) {
 
 
+
+  newDate = new Date();
+  compareDate = new Date(anno, mese - 1, giorno);
+
+  //newdate - compare date )
+  let giorniPassati = ((((newDate - compareDate) / 1000) / 60) / 60) / 24;
+  return Math.floor(giorniPassati);
 
 }
-howManyDays(11,11,2024);
+
+//formato data: numeroGiorno, numeroMese, numeroAnno -preferibilmente con un input type="date"-
+console.log(howManyDays(10, 11, 2024));
 
 
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+
+console.log("ESERCIZIO 10");
+dataNascita = {
+  giorno: 29,
+  mese: 10,
+  anno: 1996
+}
+function isTodayMyBirthday() {
+  let date = new Date();          //in caso di data personalizzata indicare con il formato aaaa/(mm -1)/gg
+  console.log(date);
+
+  if (date.getDate() === dataNascita.giorno && date.getMonth() === (dataNascita.mese -1) ) {
+    return true;
+  }else{
+    return false;
+  }
+
+};
+isTodayMyBirthday();
+console.log(isTodayMyBirthday());
 
 // Arrays & Oggetti
 
