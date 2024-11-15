@@ -496,7 +496,6 @@ consoleStamp();
 console.log("ESERCIZIO 23");
 function addBackgroudColor(){
   const allLinks = document.getElementsByTagName("a");
-  console.log(allLinks);
   for(let i = 0; i < allLinks.length; i++){
     allLinks[i].style.backgroundColor = "red";
   }
@@ -505,14 +504,41 @@ addBackgroudColor();
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+const myList = document.getElementById("myList"); //dichiarata globale perchè usata anche nell'esercizio seguente.
+console.log("ESERCIZIO 24");
+function addNewLi(){
+  const newLi = document.createElement("li");
+  newLi.innerText="Nuovo elemento appena creato";
+  myList.appendChild(newLi);
+}
+addNewLi();
+console.log(myList);
+
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+console.log("ESERCIZIO 25");
+function emptyMyList(){
+  myList.innerHTML = "";
+  
+}
+emptyMyList(); //Se commentata riapparità un Li creato con l'ES precedente
+
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+console.log("ESERCIZIO 26");
+function addClassTr(){
+  const allTr = document.getElementsByTagName("tr");
+    for(let i = 0; i < allTr.length; i++){
+      allTr[i].classList.add("test");
+    }
+console.log(allTr);
+
+}
+addClassTr();
 
 // [EXTRA] JS Avanzato
 
