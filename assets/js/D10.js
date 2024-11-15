@@ -462,19 +462,46 @@ console.log(removeIndex(2));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+console.log("ESERCIZIO 20");
+function getContainer(){
+ const container = document.getElementById("container");
 
+
+return container.nodeName;
+}
+console.log(getContainer())
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+console.log("ESERCIZIO 21");
+function selectAllTds(){
+  const AllTd = document.getElementsByTagName("td")
+  return AllTd;
+}
+console.log(selectAllTds());
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-
+console.log("ESERCIZIO 22");
+function consoleStamp(){
+  for(let i = 0; i < selectAllTds().length; i++){
+    console.log(selectAllTds()[i].innerText);
+  }
+}
+consoleStamp();
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-
+console.log("ESERCIZIO 23");
+function addBackgroudColor(){
+  const allLinks = document.getElementsByTagName("a");
+  console.log(allLinks);
+  for(let i = 0; i < allLinks.length; i++){
+    allLinks[i].style.backgroundColor = "red";
+  }
+}
+addBackgroudColor();
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
