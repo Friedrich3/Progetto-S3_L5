@@ -208,9 +208,9 @@ function isTodayMyBirthday() {
   let date = new Date();          //in caso di data personalizzata indicare con il formato aaaa/(mm -1)/gg
   console.log(date);
 
-  if (date.getDate() === dataNascita.giorno && date.getMonth() === (dataNascita.mese -1) ) {
+  if (date.getDate() === dataNascita.giorno && date.getMonth() === (dataNascita.mese - 1)) {
     return true;
-  }else{
+  } else {
     return false;
   }
 
@@ -344,28 +344,28 @@ const movies = [
 */
 console.log("ESERCIZIO 11");
 
-function deleteProp(oggetto , stringa){
-  
+function deleteProp(oggetto, stringa) {
+
   delete oggetto[stringa];
   return oggetto
 }
-console.log(deleteProp({nome:"Federico", cognome: "Tonti"} , "cognome"));
+console.log(deleteProp({ nome: "Federico", cognome: "Tonti" }, "cognome"));
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 12");
 
-function newestMovie(){
-let annoDiConfronto = 1895;
-let filmRecente;
-movies.forEach(function(element){
+function newestMovie() {
+  let annoDiConfronto = 1895;
+  let filmRecente;
+  movies.forEach(function (element) {
     let anno = parseInt(element.Year);
-    if(anno > annoDiConfronto){
+    if (anno > annoDiConfronto) {
       annoDiConfronto = anno;
-      filmRecente = {...element};
-      }
-});
-return filmRecente;
+      filmRecente = { ...element };
+    }
+  });
+  return filmRecente;
 };
 console.log(newestMovie());
 
@@ -374,7 +374,7 @@ console.log(newestMovie());
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 13");
-function countMovies(arrayFornito){
+function countMovies(arrayFornito) {
   return arrayFornito.length;
 }
 console.log(`il numero di film è: ${countMovies(movies)} `);
@@ -382,9 +382,9 @@ console.log(`il numero di film è: ${countMovies(movies)} `);
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 14");
-function onlyTheYears(arrayFornito){
-  const arrayAnni = []; 
-  arrayFornito.forEach((element)=>{
+function onlyTheYears(arrayFornito) {
+  const arrayAnni = [];
+  arrayFornito.forEach((element) => {
     arrayAnni.push(parseInt(element.Year));
   });
   return arrayAnni;
@@ -395,12 +395,12 @@ console.log(onlyTheYears(movies));
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 15");
-function onlyInLastMillennium(arrayFornito){
+function onlyInLastMillennium(arrayFornito) {
   const filmLastMillenium = arrayFornito.filter(element => {
-    return parseInt(element.Year)< 2001;
+    return parseInt(element.Year) < 2001;
   })
   return filmLastMillenium;
-  
+
 
 }
 console.log(onlyInLastMillennium(movies));
@@ -408,19 +408,54 @@ console.log(onlyInLastMillennium(movies));
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 console.log("ESERCIZIO 16");
-
+function sumAllTheYears(arrayFornito) {
+  let sumAnni = arrayFornito.reduce((totale, element) => totale + parseInt(element.Year), 0);
+  return sumAnni;
+}
+console.log(sumAllTheYears(movies));
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+console.log("ESERCIZIO 17");
+function searchByTitle(stringa) {
+  const arrayRicerca = movies.filter(element => element.Title.includes(stringa));
+  return arrayRicerca;
+};
 
+console.log(searchByTitle("Avenger"));
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+console.log("ESERCIZIO 18");
+function searchAndDivide(stringa){
 
+ resulObject = {
+  match:[],
+  unmatch:[]
+ }
+ 
+  movies.filter(element =>{
+if(element.Title.includes(stringa)){
+  resulObject.match.push(element)
+}else{
+  resulObject.unmatch.push(element);
+}
+});
+return resulObject;
+}
+
+console.log(searchAndDivide("Avenger"));
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+console.log("ESERCIZIO 19");
+function removeIndex(indice){
+  movies.splice(indice , 1);
+  return movies;
+}
+
+console.log(removeIndex(2));
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
